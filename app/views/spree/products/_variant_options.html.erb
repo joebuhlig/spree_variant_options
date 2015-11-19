@@ -29,10 +29,6 @@
     
     <script type="text/javascript">
     //<![CDATA[
-      $.urlParam = function(name){
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        return results[1] || 0;
-      }
       var variant_options = new VariantOptions({
         options: <%== @product.variant_options_hash.to_json -%>,
         track_inventory_levels: <%==  !!Spree::Config[:track_inventory_levels] -%>,
@@ -40,10 +36,10 @@
         default_instock: <%== !!SpreeVariantOptions::VariantConfig[:default_instock] -%>,
         i18n: <%== {:out_of_stock => Spree.t(:out_of_stock), :variant_options_select => Spree.t(:variant_options_select) }.to_json -%>
       });
-      $(function() {
-        url = $.urlParam('<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>')
-        $("[title="+ url +"]").click();
-      });
+      // $(function() {
+      //   url = $.urlParam('<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>')
+      //   $("[title="+ url +"]").click();
+      // });
     //]]>
     </script>
   </div>
