@@ -36,10 +36,10 @@
         default_instock: <%== !!SpreeVariantOptions::VariantConfig[:default_instock] -%>,
         i18n: <%== {:out_of_stock => Spree.t(:out_of_stock), :variant_options_select => Spree.t(:variant_options_select) }.to_json -%>
       });
-      // $(function() {
-      //   url = $.urlParam('<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>')
-      //   $("[title="+ url +"]").click();
-      // });
+      $(function() {
+        url = $.urlParam('<%=SpreeVariantOptions::VariantConfig.main_option_type_label%>')
+        $("[title="+ url +"]").click();
+      });
     //]]>
     </script>
   </div>
