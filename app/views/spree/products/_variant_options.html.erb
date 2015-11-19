@@ -29,6 +29,10 @@
     
     <script type="text/javascript">
     //<![CDATA[
+      $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results[1] || 0;
+      }
       var variant_options = new VariantOptions({
         options: <%== @product.variant_options_hash.to_json -%>,
         track_inventory_levels: <%==  !!Spree::Config[:track_inventory_levels] -%>,
